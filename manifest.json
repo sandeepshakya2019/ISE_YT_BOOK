@@ -1,0 +1,39 @@
+{
+  "name": "YouTube Book",
+  "version": "0.1.0",
+  "description": "Saving timestamps for YT videos",
+  "permissions": ["storage", "tabs", "activeTab"],
+  "host_permissions": ["https://*.youtube.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.youtube.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/bookmark.png",
+        "assets/play.png",
+        "assets/delete.png",
+        "assets/save.png",
+        "assets/edit.png",
+        "assets/cancel.png"
+      ],
+      "matches": ["https://*.youtube.com/*"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "assets/logo.png",
+      "24": "assets/logo.png",
+      "32": "assets/logo.png"
+    },
+    "default_title": "YouTube Book",
+    "default_popup": "popup.html"
+  },
+  "manifest_version": 3
+}
