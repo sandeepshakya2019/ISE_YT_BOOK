@@ -11,6 +11,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const formatTimestamp = (timestamp) => new Date(timestamp).toLocaleString();
 
+  const updateTotalStorageUsage = () => {
+    chrome.storage.sync.getBytesInUse(null, (bytesInUse) => {
+      const maxStorage = 102400;
+      const percentageUsed = ((bytesInUse / maxStorage) * 100).toFixed(2);
+      storageText.textContent = `Total Storage Used: ${percentageUsed}% (${bytesInUse} bytes)`;
+      storageProgress.style.width = `${percentageUsed}%`;
+      storageProgress.style.backgroundColor =
+        percentageUsed > 80 ? "#ff5733" : "#007bff";
+    });
+  };
+
   const renderBookmarks = () => {
     chrome.storage.sync.get(null, (data) => {
       allBookmarksElement.innerHTML = "";
@@ -219,12 +230,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
           });
 
-          // 🟨 Drag & Drop logic
-          bookmarkItem.addEventListener("dragstart", (e) => {
-            e.dataTransfer.setData("text/plain", bookmark.time);
-            e.dropEffect = "move";
-          });
-
           bookmarkItem.addEventListener("dragover", (e) => {
             e.preventDefault();
             e.dataTransfer.dropEffect = "move";
@@ -313,6 +318,51 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     });
   };
+
+  function exportBookmarks() {
+    chrome.storage.sync.get(null, (data) => {
+      if (!Object.keys(data).length) {
+        alert("No bookmarks to export!");
+        return;
+      }
+      const blob = new Blob([JSON.stringify(data, null, 2)], {
+        type: "application/json",
+      });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "bookmarks_export.json";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    });
+  }
+
+  async function importBookmarks(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = async (e) => {
+      try {
+        const importedData = JSON.parse(e.target.result);
+        chrome.storage.sync.get(null, async (existingData) => {
+          const mergedData = { ...existingData, ...importedData };
+          for (const [key, value] of Object.entries(mergedData)) {
+            await new Promise((resolve) =>
+              chrome.storage.sync.set({ [key]: value }, resolve)
+            );
+          }
+          alert("Bookmarks imported successfully!");
+          setTimeout(() => location.reload(), 500);
+        });
+      } catch {
+        alert("Invalid file format.");
+      }
+    };
+    reader.readAsText(file);
+  }
 
   exportButton.addEventListener("click", exportBookmarks);
   importButton.addEventListener("click", () => importFileInput.click());
