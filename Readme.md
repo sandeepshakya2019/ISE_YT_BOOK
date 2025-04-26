@@ -1,4 +1,4 @@
-# YouTube Bookmark Manager - Chrome Extension
+ # YouTube Bookmark Manager - Chrome Extension
 
 A lightweight and efficient Chrome extension designed to help users **bookmark specific timestamps** from YouTube videos with **custom labels**, **search**, **sort**, and **export/import** capabilities. Perfect for students, researchers, content creators, and anyone who needs to organize YouTube video content.
 
@@ -77,7 +77,7 @@ A lightweight and efficient Chrome extension designed to help users **bookmark s
   Reorder bookmarks within a video for better organization and management.
 
 - **Inline Preview**  
-  Embed YouTube iframe players directly in your bookmarks for quick previews of saved moments.
+  Embed YouTube iframe players directly in your bookmarks for quick previews of saved moments (moments come when videos allowed to embed from youtube or vides creator)
 
 ---
 
