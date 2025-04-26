@@ -1,0 +1,17 @@
+.share-button {
+  background-color: #25d366; /* WhatsApp green */
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.share-button:hover {
+  background-color: #1ebe5d;
+}
