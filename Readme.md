@@ -19,8 +19,9 @@ A lightweight and efficient Chrome extension designed to help users **bookmark s
    - Click **Load unpacked** and select the folder containing the extension files.
 
 2. **How to Use**:
+   - If you are adding the extension first time pls make sure to reload the page 2 times
    - Navigate to any YouTube video.
-   - Click the extension icon to open the popup.
+   - Click the extension icon to open the pop-up.
    - Click **`Add Bookmark`** (shown in video only) to save the current timestamp with a custom label.
    - Use the extension popup to **view, search, edit, delete**, or **export/import** your bookmarks.
    - Click `View All bookmarks` to see all the features
