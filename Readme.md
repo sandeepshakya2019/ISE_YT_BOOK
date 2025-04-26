@@ -137,27 +137,7 @@ Your privacy is important. The extension **does not collect or store** any perso
 
 ---
 
-### 9) Installation
-
-To install this extension manually:
-
-1. Clone the repository to your local machine:
-
-   ```bash
-   git clone https://github.com/yourusername/youtube-bookmark-manager.git
-   ```
-
-2. Go to the Chrome Extensions page (`chrome://extensions/`).
-3. Turn on **Developer mode**.
-4. Click **Load unpacked** and select the folder containing the extension files.
-
----
-
-Here's an updated version of the **Credits** section with the additional names included:
-
----
-
-### 10) Credits
+### 9) Credits
 
 This extension was created by
 
