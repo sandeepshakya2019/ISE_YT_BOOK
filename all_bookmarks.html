@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Bookmarks</title>
+    <link rel="stylesheet" href="all_bookmarks.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>📌 All Bookmarked Videos</h1>
+      <div class="button-container">
+        <button id="delete-all" class="delete-all-button">
+          ⚔️ Delete All Bookmarks
+        </button>
+        <button id="export-button" class="export-button">
+          📥 Export Bookmarks
+        </button>
+        <button id="import-button" class="import-button">
+          📤 Import Bookmarks
+        </button>
+        <input
+          type="file"
+          id="import-file"
+          class="import-file"
+          accept=".json"
+        />
+      </div>
+
+      <!-- Storage Usage Display -->
+      <div class="storage-info">
+        <p>
+          <strong>Chrome's Sync Storage Limit:</strong> 100 KB (102,400 bytes)
+          per extension.
+        </p>
+        <p>
+          <strong>Estimated Bookmark Capacity:</strong> You can store
+          approximately <strong>500 bookmarks</strong> before reaching the
+          limit.
+        </p>
+      </div>
+      <div class="storage-container">
+        <span id="storage-text">Total Storage Used: 0%</span>
+        <div class="storage-bar">
+          <div id="storage-progress"></div>
+        </div>
+      </div>
+      <br />
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 10px;
+        "
+      >
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search bookmarks (based on short desc)..."
+          style="width: 60%; padding: 5px"
+        />
+        <select id="sort-options" style="padding: 5px">
+          <option value="date">Sort by Date</option>
+          <option value="title">Sort by Title</option>
+        </select>
+      </div>
+      <br />
+
+      <div id="all-bookmarks">Loading bookmarks...</div>
+    </div>
+    <script src="all_bookmarks.js"></script>
+  </body>
+</html>

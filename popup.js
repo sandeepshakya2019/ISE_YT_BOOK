@@ -1,4 +1,3 @@
-// Initialize on page load
 import { getActiveTabURL } from "./utils.js";
 
 // Function to add a new bookmark
@@ -192,6 +191,7 @@ const setBookmarkAttributes = (action, eventListener, controlParentElement) => {
   controlParentElement.appendChild(controlElement);
 };
 
+// Initialize on page load
 document.addEventListener("DOMContentLoaded", async () => {
   const activeTab = await getActiveTabURL();
   const urlParams = new URLSearchParams(activeTab.url.split("?")[1]);
