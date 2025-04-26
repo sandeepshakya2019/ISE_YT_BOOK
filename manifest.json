@@ -1,7 +1,7 @@
 {
   "name": "YouTube Book",
   "version": "0.1.0",
-  "description": "Saving timestamps for YT videos",
+  "description": "Saving timestamps for YT Book videos",
   "permissions": ["storage", "tabs", "activeTab"],
   "host_permissions": ["https://*.youtube.com/*"],
   "background": {
