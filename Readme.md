@@ -101,13 +101,11 @@ YouTube is filled with useful content, but finding specific moments within video
 
 4. **Effortless Browser Integration**: Add bookmarks with a single click while watching a video—no need to pause or disrupt your viewing experience. Your timestamps are automatically saved.
 
-5. **Cross-Device Syncing**: Sync your bookmarks across all devices using Chrome's sync capabilities. Whether you're on your phone, tablet, or desktop, your bookmarks are always accessible.
+5. **Custom Alerts/Reminders**: Set reminders for specific timestamps to revisit important moments later, making it perfect for revisiting critical lessons or video sections.
 
-6. **Custom Alerts/Reminders**: Set reminders for specific timestamps to revisit important moments later, making it perfect for revisiting critical lessons or video sections.
+6. **Video Summaries**: Add personal notes to each bookmark, creating a curated summary of your video experience. Ideal for students or anyone who wants to keep track of important content.
 
-7. **Video Summaries**: Add personal notes to each bookmark, creating a curated summary of your video experience. Ideal for students or anyone who wants to keep track of important content.
-
-8. **Collaboration**: Share your bookmarks with friends or colleagues, making this perfect for group projects, collaborative learning, or content review sessions.
+7. **Collaboration**: Share your bookmarks with friends or colleagues, making this perfect for group projects, collaborative learning, or content review sessions.
 
 By addressing these issues, the YouTube Bookmark Manager extension empowers you to organize, access, and share video content in a more efficient and streamlined way.
 
