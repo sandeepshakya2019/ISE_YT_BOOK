@@ -1,20 +1,3 @@
-.share-button {
-  background-color: #25d366; /* WhatsApp green */
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 5px;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  display: block;
-  margin-top: 10px;
-  transition: background-color 0.3s ease;
-}
-
-.share-button:hover {
-  background-color: #1ebe5d;
-}
 /* General Styling */
 body {
   font-family: Arial, sans-serif;
@@ -144,22 +127,6 @@ body {
 }
 
 /* Hover Effect on Storage Info */
-.storage-info:hover {
-  background: #333;
-  transform: scale(1.05);
-}
-
-/* Fade-in Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 .export-button,
 .import-button,
@@ -279,11 +246,25 @@ body {
   cursor: pointer;
 }
 
-.video-header .share-button:hover,
-.video-header .copy-button:hover {
-  background-color: #04ba47;
-} /* Darker green on hover */
-.video-header .share-button:active, 
+.bookmark-item {
+  padding: 0.5rem 0;
+  /* border-bottom: 1px dashed #ccc; */
+}
+
+.bookmark-item:last-child {
+  border-bottom: none;
+}
+
+.video-bookmark-section {
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: #252525;
+  border: 2px solid #454545;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
 
 .video-bookmark-section:hover {
   transform: scale(1.03);
@@ -342,89 +323,19 @@ body {
 }
 
 #sort-options {
-  width: 100%;
-  padding: 6px 8px;
-  margin-bottom: 10px;
+  margin-left: 5px;
+  padding: 6px;
+  font-size: 14px;
   border-radius: 4px;
   border: 1px solid #444;
-  background-color: #1e1e1e;
+  background: #1e1e1e;
   color: #f1f1f1;
-  font-size: 14px;
-}
-#sort-options option {
-  background-color: #1e1e1e;
-  color: #f1f1f1;
-} /* Dark theme for select options */
-#sort-options option:hover {
-  background-color: #333; /* Darker background on hover */
-  color: #fff; /* White text on hover */
-} 
-/* Dark theme for select options */
-#sort-options option:active {
-  background-color: #444; /* Darker background on active */
-  color: #fff; /* White text on active */
 }
 
-.share-button,
-.copy-button {
-  color: #ffffff; /* White text for contrast */
-  background-color: #333333; /* Dark background for dark theme */
-  border: none;
-  padding: 8px 16px; /* Increased padding for a better button feel */
-  border-radius: 8px; /* Slightly more rounded corners */
-  font-size: 16px; /* Larger font for better readability */
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease; /* Smooth transition for background, shadow, and transform */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+.bookmark-item.dragging {
+  opacity: 0.5;
 }
 
-.share-button:hover,
-.copy-button:hover {
-  background-color: #ff6347; /* Tomato red color for hover effect */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Deeper shadow on hover */
-  transform: translateY(-2px); /* Lift effect on hover */
-}
-
-.share-button:focus,
-.copy-button:focus {
-  outline: none; /* Remove default focus outline */
-  border: 2px solid #25d366; /* Green border when focused */
-}
-
-.share-button:active,
-.copy-button:active {
-  background-color: #e5533d; /* Darker tomato red for active state */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Reset shadow on click */
-  transform: translateY(0); /* Reset lift effect on click */
-}
-
-.video-pin-btn {
-  color: #ffffff; /* White text for contrast */
-  background-color: #333333; /* Dark gray background for dark theme */
-  border: none;
-  padding: 5px 16px; /* Adjust padding for a more balanced button */
-  border-radius: 10px; /* Rounded corners */
-  font-size: 16px; /* Slightly larger font for readability */
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease; /* Smooth transition for color and shadow */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add subtle shadow for depth */
-}
-
-.video-pin-btn:hover {
-  background-color: #3e8e41; /* Lighter green shade for hover */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Increase shadow on hover */
-  transform: translateY(-2px); /* Subtle lift effect */
-}
-
-.video-pin-btn:focus {
-  outline: none; /* Remove default focus outline */
-  border: 2px solid #3e8e41; /* Add a focus border with the same hover color */
-}
-
-.video-pin-btn:active {
-  background-color: #2e6a35; /* Slightly darker green when clicked */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Reset shadow on click */
-  transform: translateY(0); /* Reset lift effect */
+.bookmark-item.drag-over {
+  border: 2px dashed #2196f3;
 }
