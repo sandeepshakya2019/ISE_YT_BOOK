@@ -1,6 +1,5 @@
 // Initialize on page load
 
-
 // Function to add a new bookmark
 const addNewBookmark = (bookmarks, bookmark, currentVideo) => {
   const newBookmarkElement = document.createElement("div");
@@ -97,9 +96,55 @@ const editBookmark = (bookmark, bookmarkElement, editButton, currentVideo) => {
   controls.appendChild(cancelButton);
 };
 
+// Save edited bookmark to Chrome storage
+const saveBookmark = (
+  bookmark,
+  editInput,
+  bookmarkElement,
+  editButton,
+  currentVideo
+) => {
+  const newDesc = editInput.value.trim();
 
+  if (!newDesc) return;
 
+  bookmark.shortDesc = newDesc;
 
+  const bookmarkDescElement = bookmarkElement.querySelector(
+    ".bookmark-short-desc"
+  );
+  bookmarkDescElement.textContent = newDesc;
+
+  const controls = bookmarkElement.querySelector(".bookmark-controls");
+  controls.querySelector(".save-button")?.remove();
+  controls.querySelector(".cancel-button")?.remove();
+
+  editButton.style.display = "inline-block";
+
+  chrome.storage.sync.get([currentVideo], (data) => {
+    let bookmarks = data[currentVideo] ? JSON.parse(data[currentVideo]) : [];
+    bookmarks = bookmarks.map((b) =>
+      b.time === bookmark.time ? { ...b, shortDesc: newDesc } : b
+    );
+
+    chrome.storage.sync.set(
+      { [currentVideo]: JSON.stringify(bookmarks) },
+      () => {
+        console.log("Bookmark updated in storage:", bookmarks);
+      }
+    );
+  });
+};
+
+// Cancel editing
+const cancelEdit = (bookmarkDescElement, currentDesc, editButton) => {
+  bookmarkDescElement.textContent = currentDesc;
+  const controls =
+    bookmarkDescElement.parentNode.querySelector(".bookmark-controls");
+  controls.querySelector(".save-button")?.remove();
+  controls.querySelector(".cancel-button")?.remove();
+  editButton.style.display = "inline-block";
+};
 
 document.addEventListener("DOMContentLoaded", async () => {
   const activeTab = await getActiveTabURL();
