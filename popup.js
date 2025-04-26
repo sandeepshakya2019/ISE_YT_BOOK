@@ -1,4 +1,5 @@
 // Initialize on page load
+import { getActiveTabURL } from "./utils.js";
 
 // Function to add a new bookmark
 const addNewBookmark = (bookmarks, bookmark, currentVideo) => {
@@ -144,6 +145,51 @@ const cancelEdit = (bookmarkDescElement, currentDesc, editButton) => {
   controls.querySelector(".save-button")?.remove();
   controls.querySelector(".cancel-button")?.remove();
   editButton.style.display = "inline-block";
+};
+
+// View bookmarks
+const viewBookmarks = (currentBookmarks = [], currentVideo) => {
+  const bookmarksElement = document.getElementById("bookmarks");
+  bookmarksElement.innerHTML = "";
+
+  if (currentBookmarks.length > 0) {
+    currentBookmarks.forEach((bookmark) => {
+      addNewBookmark(bookmarksElement, bookmark, currentVideo);
+    });
+  } else {
+    bookmarksElement.innerHTML = '<i class="row">No bookmarks to show</i>';
+  }
+};
+
+// Play a bookmark
+const onPlay = async (bookmarkTime) => {
+  const activeTab = await getActiveTabURL();
+  chrome.tabs.sendMessage(activeTab.id, { type: "PLAY", value: bookmarkTime });
+};
+
+// Delete a bookmark
+const onDelete = (bookmarkTime, currentVideo) => {
+  chrome.storage.sync.get([currentVideo], (data) => {
+    let bookmarks = data[currentVideo] ? JSON.parse(data[currentVideo]) : [];
+    bookmarks = bookmarks.filter((b) => b.time !== bookmarkTime);
+
+    chrome.storage.sync.set(
+      { [currentVideo]: JSON.stringify(bookmarks) },
+      () => {
+        document.getElementById("bookmark-" + bookmarkTime)?.remove();
+        console.log("Bookmark deleted from storage:", bookmarks);
+      }
+    );
+  });
+};
+
+// Add play and delete attributes
+const setBookmarkAttributes = (action, eventListener, controlParentElement) => {
+  const controlElement = document.createElement("img");
+  controlElement.src = `assets/${action}.png`;
+  controlElement.title = action;
+  controlElement.addEventListener("click", eventListener);
+  controlParentElement.appendChild(controlElement);
 };
 
 document.addEventListener("DOMContentLoaded", async () => {
