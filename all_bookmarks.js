@@ -1,4 +1,16 @@
 document.addEventListener("DOMContentLoaded", async () => {
+  const allBookmarksElement = document.getElementById("all-bookmarks");
+  const deleteAllButton = document.getElementById("delete-all");
+  const storageText = document.getElementById("storage-text");
+  const storageProgress = document.getElementById("storage-progress");
+  const exportButton = document.getElementById("export-button");
+  const importButton = document.getElementById("import-button");
+  const importFileInput = document.getElementById("import-file");
+  const searchInput = document.getElementById("search-input");
+  const sortSelect = document.getElementById("sort-options");
+
+  const formatTimestamp = (timestamp) => new Date(timestamp).toLocaleString();
+
   const renderBookmarks = () => {
     chrome.storage.sync.get(null, (data) => {
       allBookmarksElement.innerHTML = "";
@@ -280,6 +292,33 @@ document.addEventListener("DOMContentLoaded", async () => {
       updateTotalStorageUsage();
     });
   };
+
+  const deleteBookmark = (videoId, time, bookmarkElement, videoSection) => {
+    chrome.storage.sync.get([videoId], (data) => {
+      let bookmarks = data[videoId] ? JSON.parse(data[videoId]) : [];
+      bookmarks = bookmarks.filter((b) => b.time !== time);
+      if (bookmarks.length > 0) {
+        chrome.storage.sync.set(
+          { [videoId]: JSON.stringify(bookmarks) },
+          () => {
+            bookmarkElement.remove();
+            updateTotalStorageUsage();
+          }
+        );
+      } else {
+        chrome.storage.sync.remove(videoId, () => {
+          videoSection.remove();
+          updateTotalStorageUsage();
+        });
+      }
+    });
+  };
+
+  exportButton.addEventListener("click", exportBookmarks);
+  importButton.addEventListener("click", () => importFileInput.click());
+  importFileInput.addEventListener("change", importBookmarks);
+  searchInput.addEventListener("input", renderBookmarks);
+  sortSelect.addEventListener("change", renderBookmarks);
 
   renderBookmarks();
 });
