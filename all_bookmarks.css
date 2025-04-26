@@ -15,3 +15,416 @@
 .share-button:hover {
   background-color: #1ebe5d;
 }
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  color: #e0e0e0;
+}
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin: auto;
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Hover Effect on Container */
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.15);
+}
+
+/* Title */
+.title {
+  font-size: 32px; /* Increased size */
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #bb86fc;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bb86fc;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9b59ff;
+}
+
+/* Storage Usage Container */
+.storage-container {
+  margin-top: 15px;
+  font-size: 15px;
+  color: #d1e0e0;
+  text-align: center;
+}
+
+.delete-button,
+.play-button,
+.edit-button {
+  color: white;
+  text-decoration: none;
+  border: none;
+  padding: 6px 12px;
+  margin-left: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.edit-button {
+  background-color: #007bff;
+}
+
+.delete-button {
+  background-color: #dc3545;
+}
+
+.play-button {
+  background-color: #4caf50;
+}
+
+.delete-button:hover {
+  background-color: #cc0000;
+  transform: scale(1.1);
+}
+
+.play-button:hover {
+  background-color: #388e3c;
+  transform: scale(1.1);
+}
+
+/* Storage Bar */
+.storage-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #444;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+/* Storage Progress */
+#storage-progress {
+  height: 100%;
+  width: 0%;
+  background-color: #007bff;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Storage Info Box */
+.storage-info {
+  background-color: #222;
+  color: #fff;
+  padding: 14px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  font-size: 15px;
+  margin: 10px 0;
+  transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+/* Hover Effect on Storage Info */
+.storage-info:hover {
+  background: #333;
+  transform: scale(1.05);
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.export-button,
+.import-button,
+.delete-all-button {
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 10px;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+}
+
+.delete-all-button {
+  background-color: #ff4444; /* Dark red */
+}
+
+.export-button {
+  background-color: #4caf50; /* Green */
+}
+
+.import-button {
+  background-color: #f39c12;
+}
+
+.export-button:hover,
+.import-button:hover,
+.delete-all-button:hover {
+  transform: scale(1.05);
+}
+
+.delete-all-button:hover {
+  background-color: #cc0000; /* Darker red */
+  box-shadow: 0 6px 12px rgba(255, 0, 0, 0.3);
+}
+
+.import-button:hover {
+  background-color: #e67e22;
+  box-shadow: 0 4px 8px rgba(217, 139, 55, 0.3);
+}
+
+.export-button:hover {
+  background-color: #51cc55;
+  box-shadow: 0 4px 8px rgba(0, 140, 186, 0.3);
+}
+
+.export-button:active,
+.import-button:active,
+.delete-all-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 6px rgba(0, 140, 186, 0.4);
+}
+
+.import-file {
+  display: none;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between; /* Center align */
+  align-items: center;
+  margin-top: 10px;
+  display: flex;
+}
+
+.share-button,
+.copy-button {
+  color: white;
+  transition: background-color 0.2s ease-in-out;
+  background-color: #25d366; /* WhatsApp green */
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.share-button:hover,
+.copy-button:hover {
+  background-color: #04ba47;
+}
+
+.video-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.video-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.video-header h3 a {
+  text-decoration: none;
+  color: #e12727;
+}
+
+.video-header h3 a:hover {
+  text-decoration: underline;
+}
+
+.video-header .share-button,
+.video-header .copy-button {
+  flex: 0 0 auto;
+  padding: 4px 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.video-header .share-button:hover,
+.video-header .copy-button:hover {
+  background-color: #04ba47;
+} /* Darker green on hover */
+.video-header .share-button:active, 
+
+.video-bookmark-section:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+.video-bookmark-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.video-bookmark-section li {
+  background: #2a2a2a;
+  margin: 8px 0;
+  padding: 10px;
+  border-left: 5px solid #03dac6;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+.video-bookmark-section li:hover {
+  background: #333;
+  transform: translateX(5px);
+}
+
+.video-bookmark-section li strong {
+  font-size: 16px;
+  color: #e0e0e0;
+}
+
+.video-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 8px;
+}
+
+#search-input {
+  width: 100%;
+  padding: 6px 8px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #444;
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+  font-size: 14px;
+}
+
+#sort-options {
+  width: 100%;
+  padding: 6px 8px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #444;
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+  font-size: 14px;
+}
+#sort-options option {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+} /* Dark theme for select options */
+#sort-options option:hover {
+  background-color: #333; /* Darker background on hover */
+  color: #fff; /* White text on hover */
+} 
+/* Dark theme for select options */
+#sort-options option:active {
+  background-color: #444; /* Darker background on active */
+  color: #fff; /* White text on active */
+}
+
+.share-button,
+.copy-button {
+  color: #ffffff; /* White text for contrast */
+  background-color: #333333; /* Dark background for dark theme */
+  border: none;
+  padding: 8px 16px; /* Increased padding for a better button feel */
+  border-radius: 8px; /* Slightly more rounded corners */
+  font-size: 16px; /* Larger font for better readability */
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transition for background, shadow, and transform */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+.share-button:hover,
+.copy-button:hover {
+  background-color: #ff6347; /* Tomato red color for hover effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Deeper shadow on hover */
+  transform: translateY(-2px); /* Lift effect on hover */
+}
+
+.share-button:focus,
+.copy-button:focus {
+  outline: none; /* Remove default focus outline */
+  border: 2px solid #25d366; /* Green border when focused */
+}
+
+.share-button:active,
+.copy-button:active {
+  background-color: #e5533d; /* Darker tomato red for active state */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Reset shadow on click */
+  transform: translateY(0); /* Reset lift effect on click */
+}
+
+.video-pin-btn {
+  color: #ffffff; /* White text for contrast */
+  background-color: #333333; /* Dark gray background for dark theme */
+  border: none;
+  padding: 5px 16px; /* Adjust padding for a more balanced button */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 16px; /* Slightly larger font for readability */
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth transition for color and shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add subtle shadow for depth */
+}
+
+.video-pin-btn:hover {
+  background-color: #3e8e41; /* Lighter green shade for hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Increase shadow on hover */
+  transform: translateY(-2px); /* Subtle lift effect */
+}
+
+.video-pin-btn:focus {
+  outline: none; /* Remove default focus outline */
+  border: 2px solid #3e8e41; /* Add a focus border with the same hover color */
+}
+
+.video-pin-btn:active {
+  background-color: #2e6a35; /* Slightly darker green when clicked */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Reset shadow on click */
+  transform: translateY(0); /* Reset lift effect */
+}
