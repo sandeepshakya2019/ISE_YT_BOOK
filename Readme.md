@@ -6,7 +6,7 @@ A lightweight and efficient Chrome extension designed to help users **bookmark s
 
 ### 1) Getting Started
 
-1. **Download the Extension (Manually )**:
+1. **Download  the Extension (Manually )**:
 
    - Clone the repository to your local machine and then extract it:
 
