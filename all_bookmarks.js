@@ -178,6 +178,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         filteredBookmarks.forEach((bookmark, i) => {
           const bookmarkItem = document.createElement("li");
           bookmarkItem.className = "bookmark-item";
+          bookmarkItem.title = "Drag and Drop in same bookmark";
+
           bookmarkItem.setAttribute("draggable", true);
           bookmarkItem.dataset.time = bookmark.time;
 
