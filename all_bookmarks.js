@@ -107,15 +107,30 @@ document.addEventListener("DOMContentLoaded", async () => {
         const pinBtn = document.createElement("button");
         pinBtn.className = "video-pin-btn";
         pinBtn.textContent = pinnedVideos[videoId] ? "🚩" : "📌";
+        pinBtn.title = pinnedVideos[videoId]
+          ? "Unpin this video"
+          : "Pin this video"; // Dynamic tooltip based on pin state
+
         pinBtn.addEventListener("click", () => {
+          // Toggle pin state
           pinnedVideos[videoId] = !pinnedVideos[videoId];
+
+          // Update the button text and tooltip dynamically
+          pinBtn.textContent = pinnedVideos[videoId] ? "🚩" : "📌";
+          pinBtn.title = pinnedVideos[videoId]
+            ? "Unpin this video"
+            : "Pin this video"; // Update tooltip text
+
+          // Save updated pinned state to localStorage
           localStorage.setItem("pinnedVideos", JSON.stringify(pinnedVideos));
-          renderBookmarks();
+          renderBookmarks(); // Re-render bookmarks after change
         });
 
         const shareButton = document.createElement("button");
         shareButton.textContent = "➥";
         shareButton.className = "share-button";
+        shareButton.title = "Share bookmarks on WhatsApp Web"; // <-- Tooltip added
+
         shareButton.addEventListener("click", () => {
           let shareText = `📌 *Bookmarks for ${videoTitle}:*\n\n`;
           videoBookmarks.forEach((b, i) => {
@@ -129,18 +144,30 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
 
         const copyButton = document.createElement("button");
-        copyButton.textContent = "🗐";
+        copyButton.innerHTML = "📋";
         copyButton.className = "copy-button";
-        copyButton.addEventListener("click", () => {
+        copyButton.title = "Copy bookmarks";
+
+        copyButton.addEventListener("click", async () => {
           let copyText = `📌 *Bookmarks for ${videoTitle}:*\n\n`;
           videoBookmarks.forEach((b, i) => {
             const url = `https://www.youtube.com/watch?v=${videoId}&t=${b.time}s`;
             copyText += `${i + 1}. *${b.shortDesc}*\n🔗 ${url}\n\n`;
           });
-          navigator.clipboard.writeText(copyText).then(() => {
-            copyButton.textContent = "✔";
-            setTimeout(() => (copyButton.textContent = "🗐"), 1500);
-          });
+
+          try {
+            await navigator.clipboard.writeText(copyText);
+            copyButton.innerHTML = "✅";
+            copyButton.classList.add("success");
+            setTimeout(() => {
+              copyButton.innerHTML = "📋";
+              copyButton.classList.remove("success");
+            }, 1500);
+          } catch (err) {
+            console.error("Copy failed", err);
+            copyButton.innerHTML = "❌";
+            setTimeout(() => (copyButton.innerHTML = "📋"), 1500);
+          }
         });
 
         videoHeader.append(videoTitleElement, pinBtn, shareButton, copyButton);
@@ -169,10 +196,13 @@ document.addEventListener("DOMContentLoaded", async () => {
           playButton.target = "_blank";
           playButton.textContent = "▶";
           playButton.className = "play-button";
+          playButton.title = "Play Bookmark";
 
           const editButton = document.createElement("button");
           editButton.textContent = "✎";
           editButton.className = "edit-button";
+          editButton.title = "Edit Bookmark";
+
           editButton.addEventListener("click", () => {
             const newDesc = prompt(
               "Edit short description:",
@@ -199,6 +229,8 @@ document.addEventListener("DOMContentLoaded", async () => {
           const deleteButton = document.createElement("button");
           deleteButton.textContent = "✖";
           deleteButton.className = "delete-button";
+          deleteButton.title = "Delete Bookmark";
+
           deleteButton.addEventListener("click", () =>
             deleteBookmark(videoId, bookmark.time, bookmarkItem, videoSection)
           );
