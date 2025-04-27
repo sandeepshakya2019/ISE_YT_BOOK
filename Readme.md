@@ -1,4 +1,4 @@
-# YouTube Bookmark Manager - Chrome Extension
+ # YouTube Bookmark Manager - Chrome Extension
 
 A lightweight and efficient Chrome extension designed to help users **bookmark specific timestamps** from YouTube videos with **custom labels**, **search**, **sort**, and **export/import** capabilities. Perfect for students, researchers, content creators, and anyone who needs to organize YouTube video content.
 
@@ -6,12 +6,12 @@ A lightweight and efficient Chrome extension designed to help users **bookmark s
 
 ### 1) Getting Started
 
-1. **Download the Extension (Manually)**:
+1. **Download  the Extension (Manually )**:
 
    - Clone the repository to your local machine and then extract it:
 
    ```bash
-   git clone https://github.com/sandeepshakya2019/ISE_Tools
+   git clone https://github.com/sandeepshakya2019/ISE_YT_BOOK.git
    ```
 
    - Go to the Chrome Extensions page (`chrome://extensions/`).
@@ -19,8 +19,9 @@ A lightweight and efficient Chrome extension designed to help users **bookmark s
    - Click **Load unpacked** and select the folder containing the extension files.
 
 2. **How to Use**:
+   - If you are adding the extension first time pls make sure to reload the page 2 times
    - Navigate to any YouTube video.
-   - Click the extension icon to open the popup.
+   - Click the extension icon to open the pop-up.
    - Click **`Add Bookmark`** (shown in video only) to save the current timestamp with a custom label.
    - Use the extension popup to **view, search, edit, delete**, or **export/import** your bookmarks.
    - Click `View All bookmarks` to see all the features
@@ -76,7 +77,7 @@ A lightweight and efficient Chrome extension designed to help users **bookmark s
   Reorder bookmarks within a video for better organization and management.
 
 - **Inline Preview**  
-  Embed YouTube iframe players directly in your bookmarks for quick previews of saved moments.
+  Embed YouTube iframe players directly in your bookmarks for quick previews of saved moments (moments come when videos allowed to embed from youtube or vides creator)
 
 ---
 
@@ -100,13 +101,11 @@ YouTube is filled with useful content, but finding specific moments within video
 
 4. **Effortless Browser Integration**: Add bookmarks with a single click while watching a video—no need to pause or disrupt your viewing experience. Your timestamps are automatically saved.
 
-5. **Cross-Device Syncing**: Sync your bookmarks across all devices using Chrome's sync capabilities. Whether you're on your phone, tablet, or desktop, your bookmarks are always accessible.
+5. **Custom Alerts/Reminders**: Set reminders for specific timestamps to revisit important moments later, making it perfect for revisiting critical lessons or video sections.
 
-6. **Custom Alerts/Reminders**: Set reminders for specific timestamps to revisit important moments later, making it perfect for revisiting critical lessons or video sections.
+6. **Video Summaries**: Add personal notes to each bookmark, creating a curated summary of your video experience. Ideal for students or anyone who wants to keep track of important content.
 
-7. **Video Summaries**: Add personal notes to each bookmark, creating a curated summary of your video experience. Ideal for students or anyone who wants to keep track of important content.
-
-8. **Collaboration**: Share your bookmarks with friends or colleagues, making this perfect for group projects, collaborative learning, or content review sessions.
+7. **Collaboration**: Share your bookmarks with friends or colleagues, making this perfect for group projects, collaborative learning, or content review sessions.
 
 By addressing these issues, the YouTube Bookmark Manager extension empowers you to organize, access, and share video content in a more efficient and streamlined way.
 
@@ -136,27 +135,7 @@ Your privacy is important. The extension **does not collect or store** any perso
 
 ---
 
-### 9) Installation
-
-To install this extension manually:
-
-1. Clone the repository to your local machine:
-
-   ```bash
-   git clone https://github.com/yourusername/youtube-bookmark-manager.git
-   ```
-
-2. Go to the Chrome Extensions page (`chrome://extensions/`).
-3. Turn on **Developer mode**.
-4. Click **Load unpacked** and select the folder containing the extension files.
-
----
-
-Here's an updated version of the **Credits** section with the additional names included:
-
----
-
-### 10) Credits
+### 9) Credits
 
 This extension was created by
 
