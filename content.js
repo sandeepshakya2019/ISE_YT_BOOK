@@ -70,7 +70,31 @@
             console.error("Storage error:", chrome.runtime.lastError);
             alert("Failed to save bookmark. Please try again!");
           } else {
-            alert("Bookmark added successfully! 📌");
+            const notification = document.createElement("div");
+            notification.classList.add("bookmark-notification");
+            notification.innerText = "Bookmark added successfully! 📌";
+
+            notification.style.position = "fixed";
+            notification.style.bottom = "10px";
+            notification.style.left = "50%";
+            notification.style.transform = "translateX(-50%)";
+            notification.style.backgroundColor = "#4CAF50";
+            notification.style.color = "white";
+            notification.style.padding = "10px 20px";
+            notification.style.borderRadius = "5px";
+            notification.style.fontSize = "16px";
+            notification.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
+            notification.style.zIndex = "1000";
+
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+              notification.style.transition = "opacity 1s ease";
+              notification.style.opacity = "0";
+              setTimeout(() => {
+                notification.remove();
+              }, 1000);
+            }, 3000);
           }
         }
       );
