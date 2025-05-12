@@ -356,6 +356,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           updateTotalStorageUsage();
         });
       }
+      renderBookmarks();
     });
   };
 

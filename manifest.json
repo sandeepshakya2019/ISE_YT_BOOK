@@ -1,5 +1,5 @@
 {
-  "name": "YouTube Book",
+  "name": "YTBook",
   "version": "0.1.0",
   "description": "Saving timestamps for YT videos",
   "permissions": ["storage", "tabs", "activeTab"],
@@ -32,7 +32,7 @@
       "24": "assets/logo.png",
       "32": "assets/logo.png"
     },
-    "default_title": "YouTube Book",
+    "default_title": "YTBook",
     "default_popup": "popup.html"
   },
   "manifest_version": 3
